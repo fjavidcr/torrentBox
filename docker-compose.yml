@@ -40,9 +40,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-    # sysctls:
-    #   - net.ipv6.conf.all.disable_ipv6=1
-
 
   lidarr:
     image: linuxserver/lidarr
@@ -83,3 +80,6 @@ volumes:
     name: lidarr
   ~/docker/ombi/config:
     name: ombi
+
+sysctls:
+  - net.ipv6.conf.all.disable_ipv6=1
