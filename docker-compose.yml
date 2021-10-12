@@ -7,7 +7,7 @@ services:
     ports:
       - 7878:7878
     volumes:
-      - ~/docker/radarr/config:/config
+      - /home/pi/docker/radarr/config:/config
       - /media/pi/wd500/torrentbox/multimedia/radarr:/mnt/multimedia
     environment:
       - PUID=1000
