@@ -1,28 +1,28 @@
 version: '2.7'
 services:
   radarr:
-    image: linuxserver/radarr:preview
+    image: linuxserver/radarr
     container_name: radarr
     restart: unless-stopped
     ports:
       - 7878:7878
     volumes:
       - ~/docker/radarr/config:/config
-      - /media/pi/WD 500Gb/media/radarr:/mnt/multimedia
+      - /media/pi/wd500/torrentbox/multimedia/radarr:/mnt/multimedia
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
 
   sonarr:
-    image: linuxserver/sonarr:preview
+    image: linuxserver/sonarr
     container_name: sonarr
     restart: unless-stopped
     ports:
       - 8989:8989
     volumes:
       - ~/docker/sonarr/config:/config
-      - /media/pi/WD 500Gb/media/sonarr:/mnt/multimedia
+      - /media/pi/wd500/torrentbox/multimedia/sonarr:/mnt/multimedia
     environment:
       - PUID=1000
       - PGID=1000
@@ -40,6 +40,9 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
+    # sysctls:
+    #   - net.ipv6.conf.all.disable_ipv6=1
+
 
   lidarr:
     image: linuxserver/lidarr
@@ -50,7 +53,7 @@ services:
       - TZ=Europe/Madrid
     volumes:
       - ~/docker/lidarr/config:/config
-      - /media/pi/WD 500Gb/media/lidarr:/mnt/multimedia
+      - /media/pi/wd500/torrentbox/multimedia/lidarr:/mnt/multimedia
     ports:
       - 8686:8686
     restart: unless-stopped
