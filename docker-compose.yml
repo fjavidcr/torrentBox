@@ -30,6 +30,8 @@ services:
 
   jackett:
     image: linuxserver/jackett
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 0
     container_name: jackett
     restart: unless-stopped
     ports:
@@ -80,6 +82,3 @@ volumes:
     name: lidarr
   ~/docker/ombi/config:
     name: ombi
-
-sysctls:
-  - net.ipv6.conf.all.disable_ipv6=1
