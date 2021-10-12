@@ -71,14 +71,14 @@ services:
       - 3579:3579
     restart: unless-stopped
 
-volumes:
-  ~/docker/radarr/config:
-    name: radarr
-  ~/docker/sonarr/config:
-    name: sonarr
-  ~/docker/jackett/config:
-    name: jackett
-  ~/docker/lidarr/config:
-    name: lidarr
-  ~/docker/ombi/config:
-    name: ombi
+# volumes:
+#   ~/docker/radarr/config:
+#     name: radarr
+#   ~/docker/sonarr/config:
+#     name: sonarr
+#   ~/docker/jackett/config:
+#     name: jackett
+#   ~/docker/lidarr/config:
+#     name: lidarr
+#   ~/docker/ombi/config:
+#     name: ombi
