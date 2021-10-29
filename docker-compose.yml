@@ -7,8 +7,9 @@ services:
     ports:
       - 7878:7878
     volumes:
-      - /home/pi/docker/radarr/config:/config
-      - /media/pi/wd500/torrentbox/multimedia/radarr:/mnt/multimedia
+      - /home/fjavidcr/docker/radarr/config:/config
+      - /media/fjavidcr/wd500/torrentbox/multimedia/radarr:/mnt/multimedia
+      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
     environment:
       - PUID=1000
       - PGID=1000
@@ -21,8 +22,9 @@ services:
     ports:
       - 8989:8989
     volumes:
-      - /home/pi/docker/sonarr/config:/config
-      - /media/pi/wd500/torrentbox/multimedia/sonarr:/mnt/multimedia
+      - /home/fjavidcr/docker/sonarr/config:/config
+      - /media/fjavidcr/wd500/torrentbox/multimedia/sonarr:/mnt/multimedia
+      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
     environment:
       - PUID=1000
       - PGID=1000
@@ -37,7 +39,7 @@ services:
     ports:
       - 9117:9117
     volumes:
-      - /home/pi/docker/jackett/config:/config
+      - /home/fjavidcr/docker/jackett/config:/config
     environment:
       - PUID=1000
       - PGID=1000
@@ -51,8 +53,9 @@ services:
       - PGID=1000
       - TZ=Europe/Madrid
     volumes:
-      - /home/pi/docker/lidarr/config:/config
-      - /media/pi/wd500/torrentbox/multimedia/lidarr:/mnt/multimedia
+      - /home/fjavidcr/docker/lidarr/config:/config
+      - /media/fjavidcr/wd500/torrentbox/multimedia/lidarr:/mnt/multimedia
+      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
     ports:
       - 8686:8686
     restart: unless-stopped
@@ -66,19 +69,19 @@ services:
       - TZ=Europe/Madrid
       - BASE_URL=/ #optional
     volumes:
-      - /home/pi/docker/ombi/config:/config
+      - /home/fjavidcr/docker/ombi/config:/config
     ports:
       - 3579:3579
     restart: unless-stopped
 
 # volumes:
-#   /home/pi/docker/radarr/config:
+#   /home/fjavidcr/docker/radarr/config:
 #     name: radarr
-#   /home/pi/docker/sonarr/config:
+#   /home/fjavidcr/docker/sonarr/config:
 #     name: sonarr
-#   /home/pi/docker/jackett/config:
+#   /home/fjavidcr/docker/jackett/config:
 #     name: jackett
-#   /home/pi/docker/lidarr/config:
+#   /home/fjavidcr/docker/lidarr/config:
 #     name: lidarr
-#   /home/pi/docker/ombi/config:
+#   /home/fjavidcr/docker/ombi/config:
 #     name: ombi
