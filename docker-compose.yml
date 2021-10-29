@@ -8,8 +8,7 @@ services:
       - 7878:7878
     volumes:
       - /home/fjavidcr/docker/radarr/config:/config
-      - /media/fjavidcr/wd500/torrentbox/multimedia/radarr:/mnt/multimedia
-      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
+      - /media/fjavidcr/wd5001/movies:/media/fjavidcr/wd5001/movies
     environment:
       - PUID=1000
       - PGID=1000
@@ -23,8 +22,7 @@ services:
       - 8989:8989
     volumes:
       - /home/fjavidcr/docker/sonarr/config:/config
-      - /media/fjavidcr/wd500/torrentbox/multimedia/sonarr:/mnt/multimedia
-      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
+      - /media/fjavidcr/wd5001/series:/media/fjavidcr/wd5001/series
     environment:
       - PUID=1000
       - PGID=1000
@@ -45,34 +43,34 @@ services:
       - PGID=1000
       - TZ=Europe/Madrid
 
-  lidarr:
-    image: linuxserver/lidarr
-    container_name: lidarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-    volumes:
-      - /home/fjavidcr/docker/lidarr/config:/config
-      - /media/fjavidcr/wd500/torrentbox/multimedia/lidarr:/mnt/multimedia
-      - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
-    ports:
-      - 8686:8686
-    restart: unless-stopped
+  # lidarr:
+  #   image: linuxserver/lidarr
+  #   container_name: lidarr
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Madrid
+  #   volumes:
+  #     - /home/fjavidcr/docker/lidarr/config:/config
+  #     - /media/fjavidcr/wd500/torrentbox/multimedia/lidarr:/mnt/multimedia
+  #     - /media/fjavidcr/wd500/tmp:/media/fjavidcr/wd500/tmp
+  #   ports:
+  #     - 8686:8686
+  #   restart: unless-stopped
 
-  ombi:
-    image: linuxserver/ombi
-    container_name: ombi
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-      - BASE_URL=/ #optional
-    volumes:
-      - /home/fjavidcr/docker/ombi/config:/config
-    ports:
-      - 3579:3579
-    restart: unless-stopped
+  # ombi:
+  #   image: linuxserver/ombi
+  #   container_name: ombi
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Madrid
+  #     - BASE_URL=/ #optional
+  #   volumes:
+  #     - /home/fjavidcr/docker/ombi/config:/config
+  #   ports:
+  #     - 3579:3579
+  #   restart: unless-stopped
 
 # volumes:
 #   /home/fjavidcr/docker/radarr/config:
