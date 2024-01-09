@@ -8,7 +8,7 @@ services:
       - 7878:7878
     volumes:
       - /home/fjavidcr/docker/radarr/config:/config
-      - /media/fjavidcr/wd500/movies:/media/fjavidcr/wd500/movies
+      - /mnt/datastorage/radarr:/mnt/datastorage
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,7 +22,7 @@ services:
       - 8989:8989
     volumes:
       - /home/fjavidcr/docker/sonarr/config:/config
-      - /media/fjavidcr/wd500/series:/media/fjavidcr/wd500/series
+      - /mnt/datastorage/sonarr:/mnt/datastorage
     environment:
       - PUID=1000
       - PGID=1000
@@ -42,26 +42,26 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-  warp-socks:
-        image: monius/docker-warp-socks:latest
-        privileged: true
-        ports:
-            - "9091:9091"
-            # - target: 9091
-            #   published: 9091
-            #   mode: host
-        cap_add:
-            - NET_ADMIN
-            - SYS_ADMIN
-        sysctls:
-            net.ipv6.conf.all.disable_ipv6: 0
-            net.ipv4.conf.all.src_valid_mark: 1
-        healthcheck:
-            test: ["CMD", "curl", "-f", "https://www.cloudflare.com/cdn-cgi/trace"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
 
+  # warp-socks:
+  #      image: monius/docker-warp-socks:latest
+  #      privileged: true
+  #      ports:
+  #          - "9091:9091"
+  #          # - target: 9091
+  #          #   published: 9091
+  #          #   mode: host
+  #      cap_add:
+  #          - NET_ADMIN
+  #          - SYS_ADMIN
+  #      sysctls:
+  #          net.ipv6.conf.all.disable_ipv6: 0
+  #          net.ipv4.conf.all.src_valid_mark: 1
+  #      healthcheck:
+  #          test: ["CMD", "curl", "-f", "https://www.cloudflare.com/cdn-cgi/trace"]
+  #          interval: 30s
+  #          timeout: 10s
+  #          retries: 5
   # lidarr:
   #   image: linuxserver/lidarr
   #   container_name: lidarr
@@ -76,7 +76,6 @@ services:
   #   ports:
   #     - 8686:8686
   #   restart: unless-stopped
-
   # ombi:
   #   image: linuxserver/ombi
   #   container_name: ombi
@@ -90,7 +89,6 @@ services:
   #   ports:
   #     - 3579:3579
   #   restart: unless-stopped
-
 # volumes:
 #   /home/fjavidcr/docker/radarr/config:
 #     name: radarr
