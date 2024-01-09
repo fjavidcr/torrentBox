@@ -8,7 +8,7 @@ services:
       - 7878:7878
     volumes:
       - /home/fjavidcr/docker/radarr/config:/config
-      - /mnt/datastorage/radarr:/mnt/datastorage
+      - /mnt/datastorage/radarr:/mnt/datastorage/radarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,7 +22,7 @@ services:
       - 8989:8989
     volumes:
       - /home/fjavidcr/docker/sonarr/config:/config
-      - /mnt/datastorage/sonarr:/mnt/datastorage
+      - /mnt/datastorage/sonarr:/mnt/datastorage/sonarr
     environment:
       - PUID=1000
       - PGID=1000
